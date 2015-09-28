@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>touch.js example</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../src/touch.js"></script>
+    <style type="text/css">
+    html,body{
+        height:100%;
+    }
+    </style>
+
+</head>
+<body>
+
+    <script type="text/javascript">
+
+    document.addEventListener('touchstart',touchstart);
+    document.addEventListener('touchstart',touchstart);
+    document.addEventListener('touchmove',touchmove);
+    document.addEventListener('touchend',touchend);
+    document.addEventListener('touchcancel',touchend);
+
+    window.onload = function(){
+        var obj = document.body;
+        var header = document.getElementsByTagName('header')[0];
+        obj.addEventListener('tap', function(){
+            console.log('tap 事件触发了');
+        }, false);
+        obj.addEventListener('hold', function(){
+            console.log('hold 事件触发了');
+        }, false);
+        obj.addEventListener('dbtap', function(){
+            console.log('dbtap 事件触发了');
+        }, false);
+        obj.addEventListener('swipLeft', function(){
+            console.log('swipLeft 事件触发了');
+        }, false);
+        obj.addEventListener('swipRight', function(){
+            console.log('swipRight 事件触发了');
+        }, false);
+        obj.addEventListener('swipDown', function(){
+            console.log('swipDown 事件触发了');
+        }, false);
+        obj.addEventListener('swipTop', function(){
+            console.log('swipTop 事件触发了');
+        }, false);
+    }
+    </script>
+</body>
+</html>
