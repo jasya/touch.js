@@ -3,10 +3,11 @@ var elementProxy = {};
 var holdTimeout,touchTimeout;
 //调用事件
 function runevent(element,name){
-    if(window.jQuery || window.Zepto){
+    if(window.jQuery){
         $(element).trigger(name);
         return false;
-    };
+    }
+    console.log('sdf');
     var evt = document.createEvent('Event');
     evt.initEvent(name, true, true);
     element.dispatchEvent(evt);
@@ -23,7 +24,7 @@ function getX_Y(event){
     return {
         x : client.clientX,
         y : client.clientY
-    }
+    };
 }
 function touchstart(ev){
     var element            = ev.touches[0].target;
@@ -34,7 +35,7 @@ function touchstart(ev){
     elementProxy.my        = 0;
     elementProxy.element   = element;
     var now = Date.now();
-    var delta = now - (elementProxy.last_time || 0)
+    var delta = now - (elementProxy.last_time || 0);
     elementProxy.last_time = Date.now();
     if(delta < 250){
         elementProxy.doubleTap = true;
@@ -68,7 +69,7 @@ function touchend(ev){
             runevent(elementProxy.element,'swipTop');
         }
         elementProxy = {};
-        return true
+        return true;
     }
     if(elementProxy.element){
         runevent(elementProxy.element,'tap');
@@ -85,7 +86,7 @@ function touchend(ev){
 // uc游览器
 // 关闭默认手势
 try {navigator.control.gesture(false);} catch (e) {}
- 
+
 // 关闭长按弹出菜单
 try {navigator.control.longpressMenu(false);} catch (e) {}
 
