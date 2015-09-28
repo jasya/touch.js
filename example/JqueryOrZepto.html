@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>touch.js in jquery or zepto</title>
+    <script src="http://libs.baidu.com/zepto/0.8/zepto.min.js"></script>
+    <script type="text/javascript" src="../src/touch.js"></script>
+    <style type="text/css">
+    html,body{
+        height:100%;
+    }
+    .block{
+        width:500px;
+        height:500px;
+        background:red;
+    }
+    </style>
+</head>
+<body>
+    <div class="block"></div>
+    <script type="text/javascript">
+        var obj = $('body');
+        var block = $('.block');
+        block.on('tap',function(e){
+            e.stopPropagation();
+            console.log('tap 事件触发了 block');
+        });
+        obj.on('tap', function(){
+            console.log('tap 事件触发了');
+        });
+        obj.on('hold', function(){
+            console.log('hold 事件触发了');
+        });
+        obj.on('dbtap', function(){
+            console.log('dbtap 事件触发了');
+        });
+        obj.on('swipLeft', function(){
+            console.log('swipLeft 事件触发了');
+        });
+        obj.on('swipRight', function(){
+            console.log('swipRight 事件触发了');
+        });
+        obj.on('swipDown', function(){
+            console.log('swipDown 事件触发了');
+        });
+        obj.on('swipTop', function(){
+            console.log('swipTop 事件触发了');
+        });
+    </script>
+</body>
+</html>

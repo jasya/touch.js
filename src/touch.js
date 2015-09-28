@@ -3,6 +3,10 @@ var elementProxy = {};
 var holdTimeout,touchTimeout;
 //调用事件
 function runevent(element,name){
+    if(window.jQuery || window.Zepto){
+        $(element).trigger(name);
+        return false;
+    };
     var evt = document.createEvent('Event');
     evt.initEvent(name, true, true);
     element.dispatchEvent(evt);
@@ -84,3 +88,9 @@ try {navigator.control.gesture(false);} catch (e) {}
  
 // 关闭长按弹出菜单
 try {navigator.control.longpressMenu(false);} catch (e) {}
+
+document.addEventListener('touchstart',touchstart);
+document.addEventListener('touchstart',touchstart);
+document.addEventListener('touchmove',touchmove);
+document.addEventListener('touchend',touchend);
+document.addEventListener('touchcancel',touchend);
